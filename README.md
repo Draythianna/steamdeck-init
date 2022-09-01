@@ -10,4 +10,4 @@ Scripts to migrate/backup packages when new steamos update occurs erasing some o
 
 for scripts to work don't forget to set permissions to execute with chmod
 
-chmod +x <scriptname>
+chmod +x /<scriptname/>
