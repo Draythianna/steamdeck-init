@@ -9,4 +9,5 @@ Scripts to migrate/backup packages when new steamos update occurs erasing some o
 *Optional working tigervnc config and service
 
 for scripts to work don't forget to set permissions to execute with chmod
-chmod +x
+
+chmod +x <scriptname>
