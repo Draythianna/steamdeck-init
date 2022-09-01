@@ -47,6 +47,6 @@ sudo sh -c "yes | pacman -Syuu"
 ## reinstalls saved packages.txt from backup script
 sudo sh -c "yes | yay -Syu --needed - < packages.txt"
 sudo sh -c "yes | pacman -Scc"
-## fixes problem with flatpack version of lutris
+## fixes problem with flatpak version of lutris
 sudo cp config.py /usr/lib/python3.10/site-packages/lutris/util/steam/
 sudo python -m compileall /usr/lib/python3.10/site-packages/lutris/util/steam/
