@@ -1,0 +1,4 @@
+#session=gamescope-wayland
+geometry=1280x720
+alwaysshared
+depth=24
