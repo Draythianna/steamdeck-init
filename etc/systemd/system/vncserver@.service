@@ -16,6 +16,8 @@ PIDFile=/home/deck/.vnc/%H:%i.pid
 #ExecStart=/usr/bin/vncserver :%i
 ExecStart=/sbin/runuser -l deck -c "/usr/bin/vncserver :%i"
 #ExecStart=/usr/bin/x0vncserver -display :%i -geometry 1280x800 -alwaysshared -rfbauth /home/deck/.vnc/passwd
+## optional to enable ssh encryption toggle this below ExecStart value
+#ExecStart=/usr/bin/x0vncserver -display :%i -geometry 1280x800 -nolocalhost -alwaysshared -rfbauth /home/deck/.vnc/passwd
 #ExecStop=/usr/bin/x0vncserver -kill :%i
 #ExecStop=/usr/bin/killall -s 9 x0vncserver
 
