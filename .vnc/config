@@ -2,3 +2,5 @@
 geometry=1280x720
 alwaysshared
 depth=24
+## optional to force ssh encryption uncomment below ##
+#nolocalhost
