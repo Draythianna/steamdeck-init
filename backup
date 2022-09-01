@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo pacman -Qqe | awk '{print $1}' > packages.txt
+sudo yay -S --needed - < packages.txt
