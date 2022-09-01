@@ -1,0 +1,23 @@
+[Unit]
+Description=Remote desktop service (VNC)
+After=syslog.target network.target
+
+[Service]
+Type=simple
+#User=deck
+#Group=deck
+WorkingDirectory=/home/deck
+## Below cmd necessary to fix service timeouts always
+RemainAfterExit=yes
+
+PIDFile=/home/deck/.vnc/%H:%i.pid
+#ExecStartPre=/usr/bin/x0vncserver -kill :%i > /dev/null 2>&1
+#ExecStartPre=/usr/bin/killall -s 9 x0vncserver > /dev/null 2>&1
+#ExecStart=/usr/bin/vncserver :%i
+ExecStart=/sbin/runuser -l deck -c "/usr/bin/vncserver :%i"
+#ExecStart=/usr/bin/x0vncserver -display :%i -geometry 1280x800 -alwaysshared -rfbauth /home/deck/.vnc/passwd
+#ExecStop=/usr/bin/x0vncserver -kill :%i
+#ExecStop=/usr/bin/killall -s 9 x0vncserver
+
+[Install]
+WantedBy=multi-user.target
