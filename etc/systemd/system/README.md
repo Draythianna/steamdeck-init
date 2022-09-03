@@ -10,8 +10,8 @@ To use with sudo (root) type:
 
 sudo systemctrl enable vncserver@3.service --run
 
-*connect via vncs ports 5902 or greater either <ipaddress>:2 or <ipaddress>::5902 
-or as in direct example <ipaddress>:3 <ipaddress>::5903
+*connect via vncs ports 5902 or greater either [ipaddress]:2 or [ipaddress]::5902 
+or as in direct example [ipaddress]:3 [ipaddress]::5903
   
   If you want to use vncservice or server with ssh encryption, feed it the nolocalhost commandline value in settings
   or x0vncserver cmd.
