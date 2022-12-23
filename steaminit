@@ -4,6 +4,8 @@ sudo steamos-readonly disable
 ## adds deck to wheel to make sudo easier
 sudo usermod -a -G wheel deck
 sudo sed -i 's/%wheel ALL=(ALL) ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' /etc/sudoers.d/wheel
+## Enable OpenSSH Server (optional, uncomment)
+###sudo systemctl enable sshd --now
 ## setups pacman
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
