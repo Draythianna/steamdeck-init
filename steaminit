@@ -10,11 +10,11 @@ sudo sed -i 's/%wheel ALL=(ALL) ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' /etc/sudoe
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
 ## reinstall keyring just in case
-sudo pacman -Syu archlinux-keyring --overwrite \*
+sudo pacman -Sy archlinux-keyring --overwrite \*
 sudo sh -c "yes | pacman -Syu --overwrite \*"
 ## reinstalls saved packages.txt from backup script
 ## reinstalls yay
-sudo sh -c "yes | pacman -S --needed base-devel git fakeroot --overwrite \*"
+sudo sh -c "yes | pacman -Sy --needed base-devel git fakeroot --overwrite \*"
 sudo rm -r yay
 git clone https://aur.archlinux.org/yay.git
 cd yay
