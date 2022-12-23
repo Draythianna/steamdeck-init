@@ -6,7 +6,7 @@ NOTE: run "backup" script after happy with setup to create packages.txt used for
 
 *Optional script to immediate terminate all windows process in proton/wine
 
-*Optional script to fix parse error plaguing flatpak lutris version
+-Optional script to fix parse error plaguing flatpak lutris version
 
 *Optional working tigervnc config and service
 
