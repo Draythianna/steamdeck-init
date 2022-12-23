@@ -3,52 +3,21 @@
 sudo steamos-readonly disable
 ## adds deck to wheel to make sudo easier
 sudo usermod -a -G wheel deck
-## deletes files that are automatically recreated but will break reinstall
-sudo rm /etc/ctdb/ctdb-crash-cleanup.sh 
-sudo rm /etc/ctdb/debug-hung-script.sh 
-sudo rm /etc/ctdb/debug_locks.sh 
-sudo rm /etc/ctdb/events/notification/README 
-sudo rm /etc/ctdb/functions 
-sudo rm /etc/ctdb/nfs-checks.d/00.portmapper.check 
-sudo rm /etc/ctdb/nfs-checks.d/10.status.check 
-sudo rm /etc/ctdb/nfs-checks.d/20.nfs.check 
-sudo rm /etc/ctdb/nfs-checks.d/30.nlockmgr.check 
-sudo rm /etc/ctdb/nfs-checks.d/40.mountd.check 
-sudo rm /etc/ctdb/nfs-checks.d/50.rquotad.check 
-sudo rm /etc/ctdb/nfs-checks.d/README 
-sudo rm /etc/ctdb/nfs-linux-kernel-callout 
-sudo rm /etc/ctdb/notify.sh 
-sudo rm /etc/ctdb/statd-callout 
-sudo rm /etc/sudoers.d/ctdb 
-sudo rm /etc/ctdb/ctdb-crash-cleanup.sh 
-sudo rm /etc/ctdb/debug-hung-script.sh 
-sudo rm /etc/ctdb/debug_locks.sh 
-sudo rm /etc/ctdb/events/notification/README 
-sudo rm /etc/ctdb/functions 
-sudo rm /etc/ctdb/nfs-checks.d/00.portmapper.check 
-sudo rm /etc/ctdb/nfs-checks.d/10.status.check 
-sudo rm /etc/ctdb/nfs-checks.d/20.nfs.check 
-sudo rm /etc/ctdb/nfs-checks.d/30.nlockmgr.check 
-sudo rm /etc/ctdb/nfs-checks.d/40.mountd.check 
-sudo rm /etc/ctdb/nfs-checks.d/50.rquotad.check 
-sudo rm /etc/ctdb/nfs-checks.d/README 
-sudo rm /etc/ctdb/nfs-linux-kernel-callout 
-sudo rm /etc/ctdb/notify.sh 
-sudo rm /etc/ctdb/statd-callout 
-sudo rm /etc/sudoers.d/ctdb 
-sudo rm /etc/ctdb/functions 
-sudo rm /etc/X11/tigervnc/Xsession 
-sudo rm /etc/ld.so.conf.d/fakeroot.conf
-sudo rm -r /etc/ufw
 ## setups pacman
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
-sudo sh -c "yes | pacman -Syuu"
-## reinstalls saved packages.txt from backup script
-sudo sh -c "yes | yay -Syu --needed - < packages.txt"
+sudo sh -c "yes | pacman -Syu --overwrite \*"
+## reinstalls saved packages.txt from backup script## reinstalls yay
+sudo pacman -S --needed base-devel git fakeroot --overwrite \*
+sudo rm -r yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+sudo sh -c "yes | yay -Syu --needed - < packages.txt --overwrite \*"
 sudo sh -c "yes | pacman -Scc"
 ## fixes problem with flatpak version of lutris
-sudo cp config.py /usr/lib/python3.10/site-packages/lutris/util/steam/
+#sudo cp config.py /usr/lib/python3.10/site-packages/lutris/util/steam/
 sudo python -m compileall /usr/lib/python3.10/site-packages/lutris/util/steam/
 ## copies vncserver service to proper directory
 sudo cp vncserver@.service /etc/systemd/system/
