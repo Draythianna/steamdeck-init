@@ -12,13 +12,15 @@ sudo pacman-key --populate archlinux
 sudo sh -c "yes | pacman -Syu --overwrite \*"
 ## reinstalls saved packages.txt from backup script
 ## reinstalls yay
-sudo pacman -S --needed base-devel git fakeroot --overwrite \*
+sudo sh -c "yes | pacman -S --needed base-devel git fakeroot --overwrite \*"
 sudo rm -r yay
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..
 sudo sh -c "yes | yay -Syu --needed - < packages.txt --overwrite \*"
+## Alternative without yay (optional uncomment)
+###sudo sh -c "yes | pacman -Syu --needed $(cat packages.txt) --overwrite \*"
 sudo sh -c "yes | pacman -Scc"
 ## fixes problem with flatpak version of lutris
 #sudo cp config.py /usr/lib/python3.10/site-packages/lutris/util/steam/
