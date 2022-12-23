@@ -1,6 +1,6 @@
 # steamdeck-init
 -----------------
-Scripts to migrate/backup packages when new steamos update occurs erasing some of / root.
+Scripts to migrate/backup packages when new steamos update occurs erasing some/all of / root OVERLAY.
 
 *Optional script to immediate terminate all windows process in proton/wine
 
