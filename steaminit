@@ -20,7 +20,7 @@ makepkg -si
 cd ..
 sudo sh -c "yes | yay -Syu --needed - < packages.txt --overwrite \*"
 ## Alternative without yay (optional uncomment)
-###sudo sh -c "yes | pacman -Syu --needed $(cat packages.txt) --overwrite \*"
+###sudo  pacman -Syu --needed $(cat packages.txt) --overwrite \*
 sudo sh -c "yes | pacman -Scc"
 ## fixes problem with flatpak version of lutris
 #sudo cp config.py /usr/lib/python3.10/site-packages/lutris/util/steam/
