@@ -7,7 +7,8 @@ sudo usermod -a -G wheel deck
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
 sudo sh -c "yes | pacman -Syu --overwrite \*"
-## reinstalls saved packages.txt from backup script## reinstalls yay
+## reinstalls saved packages.txt from backup script
+## reinstalls yay
 sudo pacman -S --needed base-devel git fakeroot --overwrite \*
 sudo rm -r yay
 git clone https://aur.archlinux.org/yay.git
